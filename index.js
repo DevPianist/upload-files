@@ -23,4 +23,10 @@ app.post('/subir', upload.single('file'), (req, res) => {
     console.log(`${req.hostname}/${req.file.path}`);
     return res.send(req.file);
 });
+
+app.post('/subirlista', upload.array('files', 3), (req, res) => {
+    console.log(`${req.hostname}`);
+    return res.send(req.files);
+});
+
 app.listen(port, () => console.log(`Server port ${port}`));
